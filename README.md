@@ -54,3 +54,37 @@ This project is a **secure door locking system** built using an **RFID reader (R
 
 ---
 
+## 💾 Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/mithra1x/RFID-based-Smart-Door-Lock-System.git
+2.  Open the .ino file in Arduino IDE.
+3.  Install required libraries:
+
+    MFRC522 by GithubCommunity
+
+    Servo
+
+    LiquidCrystal_I2C
+4. Upload the code to your Arduino UNO.
+
+5. Use the serial monitor to scan your RFID tag and get the UID.
+6. Replace the UID in the code:
+   byte authorizedUID[4] = {0xDE, 0xAD, 0xBE, 0xEF}; // Replace with your card UID
+
+## 🔐 How It Works
+
+    The user scans an RFID card.
+
+    The system reads the UID.
+
+    If the UID matches the authorized UID:
+
+        The servo rotates to unlock the door.
+
+        LCD displays "Access Granted" and "Door is open".
+
+    After 5 seconds, the servo returns to the locked position.
+
+    If the UID is incorrect, LCD shows "Access Denied".
