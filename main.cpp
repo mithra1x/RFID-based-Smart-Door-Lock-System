@@ -8,11 +8,11 @@
 #define RST_PIN 9
 MFRC522 rfid(SS_PIN, RST_PIN);
 
-LiquidCrystal_I2C lcd(0x27, 16, 2);  // LCD address 0x27
+LiquidCrystal_I2C lcd(0x27, 16, 2);  
 
 Servo lockServo;
 
-byte authorizedUID[4] = {0xDE, 0xAD, 0xBE, 0xEF};  // Öz kartınızın UID-si ilə dəyişin
+byte authorizedUID[4] = {0xDE, 0xAD, 0xBE, 0xEF};  
 
 void setup() {
   Serial.begin(9600);
@@ -24,8 +24,8 @@ void setup() {
   lcd.setCursor(0, 0);
   lcd.print("Scan your card");
 
-  lockServo.attach(3);  // Servo PIN
-  lockServo.write(0);   // Qapalı vəziyyət
+  lockServo.attach(3);  
+  lockServo.write(0);   
 }
 
 void loop() {
@@ -49,9 +49,9 @@ void loop() {
     lcd.print("Access Granted");
     lcd.setCursor(0, 1);
     lcd.print("Door is open");
-    lockServo.write(90);  // Açıq vəziyyət
-    delay(5000);          // Açıq qalma müddəti
-    lockServo.write(0);   // Bağlı vəziyyət
+    lockServo.write(90);  
+    delay(5000);          
+    lockServo.write(0);   
   } else {
     lcd.setCursor(0, 0);
     lcd.print("Access Denied");
